@@ -13,6 +13,7 @@ const User = db.define('users', {
   },
   imageUrl: {
     type: Sequelize.STRING,
+    defaultValue: '/default.png',
   },
   googleId: {
     type: Sequelize.STRING,
