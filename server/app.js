@@ -3,6 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 const session = require('express-session');
 const { db } = require('./db');
+const passport = require('passport');
 const app = express();
 const PORT = 3000;
 
@@ -30,6 +31,9 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Static middleware
 app.use(express.static(path.join(__dirname, '..', 'public')));
